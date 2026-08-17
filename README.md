@@ -1,20 +1,57 @@
-# Heart_Disease_Prediction_Feature_Preprocessing
+# ❤️ Heart Disease Prediction
 
-# Heart Disease Prediction
+<p align="center">
+  <img src="assets/project-banner.png" alt="Heart Disease Prediction Project Banner" width="100%">
+</p>
 
-## Project Overview
+<h2 align="center">Data Understanding, Feature Selection & Preprocessing</h2>
 
-This project focuses on understanding and preparing a heart disease dataset for future predictive analytics and machine learning applications.
+<p align="center">
+  <strong>AnalystLab Africa | Data Science Internship - Week 2</strong>
+</p>
 
-The project uses the **Heart Failure Prediction Dataset**, which contains demographic and clinical information about patients. The current stage of the project focuses on **Business Understanding, Data Understanding, Data Preprocessing, Data Quality Assessment, and Feature Selection**.
+<p align="center">
+  Preparing a Clean, ML-Ready Dataset
+</p>
 
-The goal is to understand the dataset, identify relevant variables, assess its quality, and determine whether it is suitable for further analytical and machine learning work.
+<p align="center">
 
-> **Disclaimer:** This project is for educational, research, and portfolio purposes only. It is not intended to provide medical diagnosis or replace professional medical advice.
+![Python](https://img.shields.io/badge/Python-3.x-blue?logo=python)
+![Pandas](https://img.shields.io/badge/Pandas-Data%20Analysis-blue?logo=pandas)
+![Statistics](https://img.shields.io/badge/Statistics-Feature%20Selection-purple)
+![Scikit Learn](https://img.shields.io/badge/Scikit--learn-Preprocessing-orange?logo=scikit-learn)
+![Status](https://img.shields.io/badge/Status-In%20Progress-yellow)
+
+</p>
 
 ---
 
-# 1. Business Understanding
+# 📌 Project Overview
+
+This project focuses on understanding and preparing a heart disease dataset for future predictive analysis.
+
+Using the **Heart Failure Prediction Dataset**, the project investigates patient demographic and clinical variables, assesses data quality, identifies relevant features, and determines the appropriate preprocessing techniques required before machine learning.
+
+The current stage of the project focuses on:
+
+* Business Understanding
+* Data Understanding
+* Data Quality Assessment
+* Exploratory Analysis
+* Data Preprocessing
+* Categorical Encoding
+* Scaling Assessment
+* Correlation Analysis
+* Outlier Assessment
+* Feature Selection using Statistical Significance
+
+The objective is to produce a **clean, well-understood, and machine-learning-ready dataset** before proceeding to predictive modelling.
+
+> ⚠️ **Disclaimer:** This project is for educational, research, and portfolio purposes only. It is not intended to provide medical diagnosis or replace professional medical advice.
+
+---
+
+# 🎯 Business Understanding
 
 ## Problem Statement
 
@@ -22,11 +59,11 @@ Heart disease is one of the major health challenges worldwide. Identifying facto
 
 The purpose of this project is to analyze patient health information and identify variables that may be relevant to the presence of heart disease.
 
-The project will first focus on understanding and preparing the dataset before proceeding to predictive modelling in a later stage.
+The project first focuses on understanding and preparing the dataset before proceeding to predictive modelling in a later stage.
 
 ## Business Objective
 
-The main objective is to investigate the factors associated with heart disease and prepare a high-quality dataset that can be used for future predictive analysis.
+The main objective is to investigate factors associated with heart disease and prepare a high-quality dataset for future predictive analysis.
 
 ### Specific Objectives
 
@@ -35,7 +72,7 @@ The main objective is to investigate the factors associated with heart disease a
 3. Identify numerical and categorical variables.
 4. Assess the quality of the dataset.
 5. Check for missing values and duplicate records.
-6. Investigate the distribution of the variables.
+6. Investigate the distribution of variables.
 7. Identify relevant features for the prediction problem.
 8. Investigate relationships and correlations between variables.
 9. Determine which variables require encoding.
@@ -47,33 +84,29 @@ The main objective is to investigate the factors associated with heart disease a
 
 ---
 
-# 2. Dataset Understanding
+# 📊 Dataset at a Glance
 
 The project uses the **Heart Failure Prediction Dataset** from Kaggle.
 
 [Heart Failure Prediction Dataset — Kaggle](https://www.kaggle.com/datasets/fedesoriano/heart-failure-prediction?utm_source=chatgpt.com)
 
-## Dataset Size
-
-The dataset contains:
-
-* **918 observations**
-* **12 columns**
-* **11 predictor variables**
-* **1 target variable**
-
-## Data Quality
-
-The initial data quality assessment established that:
-
-* There are **no missing values**.
-* There are **no duplicate records**.
-* The dataset contains both numerical and categorical variables.
-* The target variable is binary.
+| Dataset Metric      |                     Value |
+| ------------------- | ------------------------: |
+| Observations        |                   **918** |
+| Predictor Variables |                    **11** |
+| Target Variable     |                     **1** |
+| Total Columns       |                    **12** |
+| Missing Values      |                     **0** |
+| Duplicate Records   |                     **0** |
+| Problem Type        | **Binary Classification** |
 
 ---
 
-# 3. Dataset Features
+# 🔎 Data Understanding
+
+The dataset contains demographic and clinical information relating to patients and their heart disease status.
+
+## Features
 
 | Feature          | Description                           | Data Type   |
 | ---------------- | ------------------------------------- | ----------- |
@@ -92,35 +125,63 @@ The initial data quality assessment established that:
 
 ---
 
-# 4. Target Variable
+# 🎯 Target Variable
 
 The target variable is:
 
-`HeartDisease`
+```text
+HeartDisease
+```
 
-It contains two possible values:
+It contains two possible classes:
 
 | Value | Meaning          |
 | ----: | ---------------- |
 |   `0` | No Heart Disease |
 |   `1` | Heart Disease    |
 
-Since the target contains two classes, it is a **binary target variable**.
+Because the target contains two classes, the prediction problem is a **binary classification problem**.
 
 ---
 
-# 5. Categorical Variables
+# 🧹 Data Quality Assessment
+
+The dataset was examined to determine whether it contained common data-quality problems.
+
+## Missing Values
+
+The dataset was checked for missing values.
+
+**Finding:**
+
+> No missing values were identified.
+
+Therefore, imputation techniques such as mean, median, or mode replacement were not required.
+
+## Duplicate Records
+
+The dataset was checked for duplicate observations.
+
+**Finding:**
+
+> No duplicate records were identified.
+
+Therefore, duplicate removal was not necessary.
+
+---
+
+# 🔤 Categorical Variables
 
 The categorical variables identified in the dataset are:
 
-### Sex
+### `Sex`
 
 ```text
 M
 F
 ```
 
-### ChestPainType
+### `ChestPainType`
 
 ```text
 ATA
@@ -129,7 +190,7 @@ ASY
 TA
 ```
 
-### RestingECG
+### `RestingECG`
 
 ```text
 NORMAL
@@ -137,14 +198,14 @@ ST
 LVH
 ```
 
-### ExerciseAngina
+### `ExerciseAngina`
 
 ```text
 N
 Y
 ```
 
-### ST_Slope
+### `ST_Slope`
 
 ```text
 UP
@@ -152,63 +213,11 @@ FLAT
 DOWN
 ```
 
-These variables require appropriate encoding before they can be used in most numerical analytical procedures and future machine learning models.
+These variables require appropriate encoding before being used in most numerical analytical procedures and future machine learning models.
 
 ---
 
-# 6. Data Preprocessing Assessment
-
-The dataset was assessed to determine the preprocessing techniques required before further analysis.
-
-The main preprocessing questions considered were:
-
-1. Which features are most relevant to the prediction problem?
-2. Which variables require encoding?
-3. Which variables require scaling or normalization?
-4. Are there redundant or highly correlated features?
-5. How should missing values and outliers be handled?
-6. Which preprocessing techniques can improve dataset quality?
-7. Is the dataset ready for further analysis and machine learning?
-
----
-
-# 7. Missing Values
-
-The dataset was checked for missing values.
-
-### Finding
-
-**No missing values were identified.**
-
-Therefore, the following techniques were not required:
-
-* Mean imputation
-* Median imputation
-* Mode imputation
-* Forward filling
-* Backward filling
-
-This is an advantage because no information needs to be estimated or replaced.
-
----
-
-# 8. Duplicate Records
-
-The dataset was checked for duplicate observations.
-
-### Finding
-
-**No duplicate records were identified.**
-
-Therefore, duplicate removal was not necessary.
-
-This indicates that each observation represents a unique record within the dataset.
-
----
-
-# 9. Encoding Requirements
-
-Categorical variables must be converted into numerical representations before they can be used in most numerical modelling techniques.
+# 🔢 Encoding Assessment
 
 ## Binary Categorical Variables
 
@@ -217,7 +226,7 @@ The following variables contain two categories:
 * `Sex`
 * `ExerciseAngina`
 
-These variables can be encoded using **Label Encoding or Binary Encoding**.
+These can be converted into binary numerical representations.
 
 For example:
 
@@ -244,18 +253,9 @@ The following variables contain multiple categories without a simple numerical o
 * `ChestPainType`
 * `RestingECG`
 
-These variables are suitable for **One-Hot Encoding**.
+These are suitable for **One-Hot Encoding**.
 
-For example, `ChestPainType` contains:
-
-```text
-ATA
-NAP
-ASY
-TA
-```
-
-Instead of assigning arbitrary values such as:
+For example, instead of assigning:
 
 ```text
 ATA = 0
@@ -264,13 +264,13 @@ ASY = 2
 TA  = 3
 ```
 
-One-Hot Encoding can create separate binary columns.
+One-Hot Encoding creates separate binary columns.
 
-This prevents the encoding from incorrectly suggesting that one type of chest pain is numerically greater or smaller than another.
+This prevents the model from incorrectly interpreting the categories as having a numerical ranking.
 
 ---
 
-# 10. ST_Slope Encoding
+# 📐 ST_Slope Encoding
 
 `ST_Slope` contains:
 
@@ -282,15 +282,15 @@ DOWN
 
 This variable requires careful consideration because the categories represent different slope conditions.
 
-An appropriate categorical encoding method should be selected based on how the variable is intended to be interpreted during subsequent analysis.
+An appropriate categorical encoding method should be selected based on the intended analytical interpretation.
 
-The encoding should avoid introducing an artificial relationship that is not supported by the data.
+The encoding should avoid introducing an artificial numerical relationship that is not supported by the data.
 
 ---
 
-# 11. Numerical Variables
+# 📏 Numerical Variables
 
-The numerical variables identified in the dataset are:
+The numerical variables identified are:
 
 * `Age`
 * `RestingBP`
@@ -298,35 +298,33 @@ The numerical variables identified in the dataset are:
 * `MaxHR`
 * `Oldpeak`
 
-These variables are measured on different numerical scales.
+These variables are measured using different scales.
 
 For example:
 
-* Age represents years.
-* RestingBP represents blood pressure.
-* Cholesterol represents cholesterol level.
-* MaxHR represents maximum heart rate.
-* Oldpeak represents ST depression.
+* `Age` represents years.
+* `RestingBP` represents blood pressure.
+* `Cholesterol` represents cholesterol level.
+* `MaxHR` represents maximum heart rate.
+* `Oldpeak` represents ST depression.
 
-Because the variables have different ranges, scaling may be required for some future analytical and machine learning techniques.
+Because their ranges differ, scaling may be required for certain future analytical and machine learning techniques.
 
 ---
 
-# 12. Scaling and Normalization
+# ⚖️ Scaling & Normalization Assessment
 
-Scaling is not necessarily required for every analysis.
+Scaling is not required for every type of analysis.
 
-However, numerical scaling may be useful when using techniques that are sensitive to differences in feature magnitude.
+However, it may be important for algorithms that are sensitive to differences in feature magnitude.
 
-Standardization can transform numerical variables so that they have a comparable scale.
-
-A common technique is **Standardization**, which transforms values using:
+A common standardization formula is:
 
 ```text
 z = (x - mean) / standard deviation
 ```
 
-For this project, numerical features that may require scaling include:
+The numerical variables that may require scaling include:
 
 * `Age`
 * `RestingBP`
@@ -334,15 +332,15 @@ For this project, numerical features that may require scaling include:
 * `MaxHR`
 * `Oldpeak`
 
-Scaling will be applied at the appropriate stage before future modelling, rather than unnecessarily altering the raw dataset.
+Scaling will be applied at the appropriate stage rather than unnecessarily modifying the original dataset.
 
 ---
 
-# 13. Correlation and Redundant Features
+# 📈 Correlation Analysis
 
-Correlation analysis is important for identifying relationships between numerical variables.
+Correlation analysis is useful for understanding relationships between numerical variables and identifying potentially redundant features.
 
-The following numerical variables can be examined:
+The following variables can be examined:
 
 * `Age`
 * `RestingBP`
@@ -350,72 +348,80 @@ The following numerical variables can be examined:
 * `MaxHR`
 * `Oldpeak`
 
-A correlation matrix can help determine whether two or more variables have a strong relationship.
+A correlation matrix can help identify variables that have strong relationships with each other.
 
-Highly correlated features may contain overlapping information and could potentially introduce redundancy.
+Highly correlated predictors may contain overlapping information.
 
-However, a feature should not be removed based solely on correlation. Domain knowledge and additional feature-selection techniques should also be considered.
+However, a feature should **not automatically be removed simply because it is correlated with another feature**. Domain knowledge and additional feature-selection techniques should also be considered.
 
 ---
 
-# 14. Outlier Assessment
+# 🚨 Outlier Assessment
 
-Outliers are observations that are unusually high or low compared with the majority of observations.
-
-Potential outliers should be investigated in variables such as:
+Potential outliers should be investigated in numerical variables such as:
 
 * `RestingBP`
 * `Cholesterol`
 * `MaxHR`
 * `Oldpeak`
 
-Possible techniques for identifying outliers include:
+Possible techniques include:
 
 * Boxplots
 * Histograms
-* Interquartile Range (IQR)
 * Descriptive statistics
+* Interquartile Range (IQR)
 
-### Outlier Treatment
+## Outlier Treatment
 
-Outliers should **not automatically be removed**.
+Outliers should not automatically be removed.
 
-In a health-related dataset, an extreme value may represent a genuine medical observation rather than an error.
+In a health-related dataset, an extreme value may represent a genuine medical observation rather than a data-entry error.
 
-Therefore, an outlier should only be removed or transformed when there is sufficient evidence that it is an incorrect or problematic observation.
+Therefore, an outlier should only be removed or transformed when there is sufficient evidence that it is incorrect or problematic.
 
 ---
 
-# 15. Feature Selection Using Statistical Significance
+# 🔍 Feature Selection
 
-Feature selection was also explored using **statistical significance and p-values**.
+Feature selection was explored to determine which variables may contribute to the heart disease outcome.
 
-An OLS-based exploratory analysis was performed to investigate the relationship between the variables and the target.
+Statistical significance was investigated using **p-values**.
 
-The analysis produced:
+The exploratory OLS analysis produced:
 
-```text
-R-squared ≈ 0.533
-Adjusted R-squared ≈ 0.525
-```
+| Statistic          |       Value |
+| ------------------ | ----------: |
+| R-squared          | **≈ 0.533** |
+| Adjusted R-squared | **≈ 0.525** |
 
-The analysis also showed that some variables and categorical levels had statistically significant relationships with the target, while others were less statistically significant.
+Several variables and categorical levels showed statistically significant relationships with the target.
+
+Potentially relevant variables identified during the exploratory analysis included:
+
+* `Sex`
+* `ChestPainType`
+* `FastingBS`
+* `MaxHR`
+* `ExerciseAngina`
+* `Oldpeak`
+* `ST_Slope`
 
 ### Important Note
 
-The OLS analysis was used as an **exploratory feature-selection technique**.
+The OLS analysis is being used as an **exploratory statistical feature-selection technique**.
 
 It should not be considered the final predictive approach because `HeartDisease` is a binary target variable.
 
-The p-value analysis is useful for understanding which variables may have stronger statistical relationships with the outcome.
+The p-value analysis provides useful statistical insight into which variables may have stronger relationships with the outcome.
 
 ---
 
-# 16. Relevant Features
+# 🧠 Feature Relevance
 
 Based on the exploratory statistical analysis, several variables showed evidence of being relevant to the heart disease outcome.
 
-Variables identified as potentially important include:
+Potentially important variables include:
 
 * `Sex`
 * `ChestPainType`
@@ -427,192 +433,254 @@ Variables identified as potentially important include:
 
 However, feature relevance should not be determined using p-values alone.
 
-Other factors such as:
+Further analysis should consider:
 
 * Correlation
 * Domain knowledge
-* Data distribution
-* Model-based feature importance
 * Multicollinearity
-
-should be considered in later stages.
-
----
-
-# 17. Preprocessing Techniques Applied or Recommended
-
-The preprocessing assessment identified the following approaches:
-
-| Data Issue                    | Finding            | Recommended Treatment                          |
-| ----------------------------- | ------------------ | ---------------------------------------------- |
-| Missing values                | None               | No treatment required                          |
-| Duplicate records             | None               | No treatment required                          |
-| Binary categorical variables  | Present            | Binary/Label Encoding                          |
-| Nominal categorical variables | Present            | One-Hot Encoding                               |
-| Numerical variables           | Present            | Scaling where required                         |
-| Potential outliers            | Need investigation | Statistical and visual assessment              |
-| Correlated variables          | Need investigation | Correlation analysis                           |
-| Feature relevance             | Investigated       | Statistical significance and further selection |
-| Target variable               | Binary             | Keep as 0/1                                    |
+* Feature distributions
+* Additional feature-selection techniques
+* Performance during future modelling
 
 ---
 
-# 18. Dataset Quality Assessment
+# 🛠️ Preprocessing Summary
+
+| Data Issue                    | Finding               | Treatment                         |
+| ----------------------------- | --------------------- | --------------------------------- |
+| Missing values                | None                  | No treatment required             |
+| Duplicate records             | None                  | No treatment required             |
+| Binary categorical variables  | Present               | Binary/Label Encoding             |
+| Nominal categorical variables | Present               | One-Hot Encoding                  |
+| Numerical variables           | Present               | Scaling where required            |
+| Potential outliers            | Require investigation | Statistical and visual assessment |
+| Correlated variables          | Require investigation | Correlation analysis              |
+| Feature relevance             | Investigated          | Statistical significance          |
+| Target variable               | Binary                | Keep as 0/1                       |
+
+---
+
+# 🏆 Dataset Quality Assessment
 
 Overall, the dataset is in good condition for further analysis.
 
-The major positive findings are:
+### Positive Findings
 
-* No missing values
-* No duplicate records
-* Clearly defined target variable
-* Combination of useful numerical and categorical features
-* Manageable dataset size
-* Categorical variables with identifiable categories
+✅ No missing values
+✅ No duplicate records
+✅ Clearly defined target variable
+✅ Combination of numerical and categorical features
+✅ Manageable dataset size
+✅ Clearly identifiable categorical variables
 
-Some preprocessing is still required because categorical variables need appropriate encoding and numerical variables may need scaling depending on the next analytical technique.
+### Remaining Preprocessing Considerations
 
----
-
-# 19. Is the Dataset Ready for Machine Learning?
-
-### Current Status: **Mostly Ready**
-
-The dataset is of sufficient quality to proceed to the next stage.
-
-However, it should not be considered completely ready in its raw form because:
-
-* Categorical variables still require encoding.
-* Numerical variables may require scaling depending on the selected technique.
-* Potential outliers should be investigated.
-* Correlations and redundant variables should be assessed further.
-* Feature selection should be finalized.
-
-After these preprocessing steps are completed, the dataset can be prepared for the next stage of the project.
+🔄 Investigate potential outliers
+🔄 Finalize correlation analysis
+🔄 Apply appropriate encoding
+🔄 Determine final scaling requirements
+🔄 Finalize feature selection
 
 ---
 
-# 20. Current Project Status
+# 🚧 Project Status
 
-| Project Stage                       | Status                        |
-| ----------------------------------- | ----------------------------- |
-| Business Understanding              | Completed                     |
-| Dataset Understanding               | Completed                     |
-| Data Quality Assessment             | Completed                     |
-| Missing Value Assessment            | Completed                     |
-| Duplicate Assessment                | Completed                     |
-| Categorical Variable Identification | Completed                     |
-| Encoding Assessment                 | Completed                     |
-| Scaling Assessment                  | Completed                     |
-| Correlation Assessment              | In Progress / To be finalized |
-| Outlier Assessment                  | In Progress / To be finalized |
-| Statistical Feature Selection       | Completed                     |
-| Machine Learning Modelling          | **Not Started**               |
-| Model Evaluation                    | **Not Started**               |
-| Deployment                          | **Not Started**               |
-
----
-
-# 21. Next Steps
-
-The next stage of the project will focus on implementing the identified preprocessing techniques.
-
-The planned workflow is:
-
-```text
-Data Preprocessing
-       ↓
-Encoding
-       ↓
-Scaling
-       ↓
-Correlation Analysis
-       ↓
-Outlier Assessment
-       ↓
-Final Feature Selection
-       ↓
-Prepared Dataset
-       ↓
-Machine Learning Modelling
-```
-
-Machine learning modelling will only begin after the preprocessing stage has been completed and the final feature set has been established.
+| Project Stage                       | Status         |
+| ----------------------------------- | -------------- |
+| Business Understanding              | ✅ Completed    |
+| Data Understanding                  | ✅ Completed    |
+| Data Quality Assessment             | ✅ Completed    |
+| Missing Value Analysis              | ✅ Completed    |
+| Duplicate Analysis                  | ✅ Completed    |
+| Categorical Variable Identification | ✅ Completed    |
+| Encoding Assessment                 | ✅ Completed    |
+| Scaling Assessment                  | ✅ Completed    |
+| Statistical Feature Selection       | ✅ Completed    |
+| Correlation Analysis                | 🔄 In Progress |
+| Outlier Assessment                  | 🔄 In Progress |
+| Final Preprocessing                 | 🔄 In Progress |
+| Machine Learning Modelling          | ⏳ Upcoming     |
+| Model Evaluation                    | ⏳ Upcoming     |
+| Deployment                          | ⏳ Upcoming     |
 
 ---
 
-# 22. Technologies Used
+# 📚 Key Learning Outcomes
 
-The project currently uses:
+Through this project, I have strengthened my understanding of:
 
-* **Python**
-* **Pandas** — data manipulation and analysis
-* **NumPy** — numerical computation
-* **Matplotlib** — visualization
-* **Seaborn** — statistical visualization
-* **Statsmodels** — statistical analysis and p-value testing
-* **Scikit-learn** — preprocessing and future machine learning work
-* **Jupyter Notebook / Google Colab** — analysis and experimentation
-* **Git & GitHub** — version control and project documentation
+* Business understanding in data science
+* Dataset exploration
+* Data quality assessment
+* Missing-value analysis
+* Duplicate detection
+* Categorical data identification
+* Categorical encoding
+* Numerical feature scaling
+* Correlation analysis
+* Outlier detection
+* Statistical significance
+* Feature selection
+* Preparing datasets for machine learning
+* Documenting data science projects using GitHub
 
 ---
 
-# 23. Project Structure
+# 🚀 Next Steps
 
-A recommended project structure is:
+The next stage of the project will focus on:
+
+1. Finalizing the preprocessing analysis.
+2. Applying the selected encoding techniques.
+3. Investigating and handling relevant outliers.
+4. Completing correlation analysis.
+5. Finalizing feature selection.
+6. Preparing the final clean dataset.
+7. Proceeding to machine learning modelling.
+
+Machine learning modelling will begin **after the preprocessing stage has been completed**.
+
+---
+
+# 🛠️ Technologies & Tools
+
+| Technology                | Purpose                           |
+| ------------------------- | --------------------------------- |
+| 🐍 Python                 | Data analysis                     |
+| 🐼 Pandas                 | Data manipulation                 |
+| 🔢 NumPy                  | Numerical computation             |
+| 📊 Matplotlib             | Data visualization                |
+| 📈 Seaborn                | Statistical visualization         |
+| 📐 Statsmodels            | Statistical analysis              |
+| 🤖 Scikit-learn           | Preprocessing                     |
+| 📓 Jupyter / Google Colab | Development and experimentation   |
+| 🐙 Git & GitHub           | Version control and documentation |
+
+---
+
+# 📁 Project Structure
 
 ```text
 heart-disease-prediction/
 │
+├── assets/
+│   └── project-banner.png
+│
 ├── data/
 │   └── heart.csv
+│   └──clean_heart_disease_dataset.csv
+│   └── X_selected.csv
 │
 ├── notebooks/
-│   ├── business_understanding.ipynb
-│   ├── data_understanding.ipynb
-│   ├── data_preprocessing.ipynb
-│   └── feature_selection.ipynb
+│   ├── jupyternotebook.ipynb
+│
+├── files/
+│    └── business_understanding_report.pdf 
+│    └── datapreprocessing_report.pdf
 │
 ├── README.md
 ├── requirements.txt
 └── .gitignore
 ```
 
-
-
----
-
-# 24. Conclusion
-
-The current stage of this project has focused on understanding and preparing the heart disease dataset for future predictive analysis.
-
-The dataset contains **918 observations and 12 columns**, with **11 predictor variables and one binary target variable**.
-
-The data quality assessment found:
-
-* No missing values
-* No duplicate records
-* Numerical and categorical variables requiring different preprocessing approaches
-
-Categorical variables were identified for appropriate encoding, while numerical variables were assessed for possible scaling. Correlation and outlier analysis were identified as important additional preprocessing steps.
-
-Feature selection was also explored using statistical significance and p-values. The analysis provided useful information about variables that may be associated with heart disease.
-
-Overall, the dataset is **mostly ready for the next stage**, but the identified preprocessing techniques should be finalized and implemented before machine learning modelling begins.
+The structure can be modified to reflect the actual organization of the project.
 
 ---
 
-# Author
+# 💻 Installation
+
+## Clone the Repository
+
+```bash
+git clone https://github.com/your-username/heart-disease-prediction.git
+cd heart-disease-prediction
+```
+
+## Create a Virtual Environment
+
+```bash
+python -m venv venv
+```
+
+### Windows
+
+```bash
+venv\Scripts\activate
+```
+
+### macOS/Linux
+
+```bash
+source venv/bin/activate
+```
+
+## Install Dependencies
+
+```bash
+pip install -r requirements.txt
+```
+
+---
+
+# 📦 Requirements
+
+A basic `requirements.txt` file can contain:
+
+```text
+pandas
+numpy
+matplotlib
+seaborn
+scikit-learn
+statsmodels
+jupyter
+```
+
+---
+
+# 📓 Running the Project
+
+If the project uses Jupyter Notebook:
+
+```bash
+jupyter notebook
+```
+
+Then open the notebooks in the `notebooks/` directory in the recommended order:
+
+```text
+01 → Business Understanding
+02 → Data Understanding
+03 → Data Preprocessing
+04 → Feature Selection
+```
+
+---
+
+# 📝 Current Project Scope
+
+This repository currently focuses on:
+
+> **Understanding → Cleaning → Preprocessing → Feature Selection**
+
+Machine learning model development has **not yet been included** because it represents the next stage of the project.
+
+This ensures that the repository accurately reflects the work completed during the current phase of the **AnalystLab Africa Data Science Internship**.
+
+---
+
+# 👤 Author
 
 **Gabriel Dzimado**
 
-**BSc Data Science and Analytics**
+BSc Data Science and Analytics
 **Ghana Communication Technology University (GCTU)**
-** Data Science Intern
+
+**Data Science Intern — AnalystLab Africa**
 
 ---
 
-# Disclaimer
+# ⚠️ Disclaimer
 
 This project is intended strictly for **educational, research, and portfolio purposes**.
 
@@ -620,8 +688,18 @@ The analysis does not provide medical diagnosis or treatment recommendations. Th
 
 ---
 
-# Dataset Reference
+# 📚 Dataset Reference
 
 **Heart Failure Prediction Dataset — Kaggle**
 
 [Heart Failure Prediction Dataset](https://www.kaggle.com/datasets/fedesoriano/heart-failure-prediction?utm_source=chatgpt.com)
+
+---
+
+<p align="center">
+  <strong>Built with Python 🐍 | Data Science 📊 | Statistics 📐</strong>
+</p>
+
+<p align="center">
+  AnalystLab Africa — Data Science Internship
+</p>
