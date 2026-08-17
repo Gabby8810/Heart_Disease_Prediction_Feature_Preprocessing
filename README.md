@@ -1,7 +1,7 @@
 # ❤️ Heart Disease Prediction
 
 <p align="center">
-  <img src="assets/project-banner.png" alt="Heart Disease Prediction Project Banner" width="100%">
+  <img src="project-banner.png" alt="Heart Disease Prediction Project Banner" width="100%">
 </p>
 
 <h2 align="center">Data Understanding, Feature Selection & Preprocessing</h2>
