@@ -7,7 +7,7 @@
 <h2 align="center">Data Understanding, Feature Selection & Preprocessing</h2>
 
 <p align="center">
-  <strong>AnalystLab Africa | Data Science Internship - Week 2</strong>
+  <strong>AnalystLab Africa | Data Science Internship - Week 3</strong>
 </p>
 
 <p align="center">
